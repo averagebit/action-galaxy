@@ -1,0 +1,18 @@
+name: Publish role to Ansible Galaxy
+description: Publish role to Ansible Galaxy
+author: averagebit <averagebit@pm.me>
+
+inputs:
+  galaxy_token:
+    description: Ansible Galaxy access token.
+    required: true
+
+runs:
+  using: docker
+  image: "docker://averagebit/action-galaxy"
+  env:
+    GALAXY_TOKEN: ${{ inputs.galaxy_token }}
+
+branding:
+  icon: upload-cloud
+  color: gray-dark
